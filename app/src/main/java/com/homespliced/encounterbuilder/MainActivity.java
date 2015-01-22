@@ -77,10 +77,12 @@ public class MainActivity extends Activity {
             // Pull that URI using resultData.getData().
             // Get path from URI using uri.getPath().
             Uri uri;
+            EncounterBuilderDatabaseHelper eHelper;
+            eHelper = new EncounterBuilderDatabaseHelper(this);
             if (resultData != null) {
                 uri = resultData.getData();
                 String path = uri.getPath();
-                ImportData.Import(path);
+                eHelper.ImportMonsterExcel(path);
             }
         }
     }
